@@ -1,0 +1,28 @@
+version: '3.4'
+services:
+    apache:
+        ports:
+            - 80:80
+        env_file:
+            - .env
+        depends_on:
+            - mailhog
+
+#    nginx:
+#        ports:
+#            - 80:80
+#        env_file:
+#            - .env
+#        depends_on:
+#            - php-fpm
+#            - mailhog
+
+    database:
+        env_file:
+            - .env
+
+    mailhog:
+        image: mailhog/mailhog
+        container_name: mailhog
+        ports:
+            - 8025:8025
