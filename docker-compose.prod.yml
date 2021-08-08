@@ -1,0 +1,15 @@
+version: '3.4'
+services:
+    apache:
+        ports:
+            - 80:44380
+            - 443:443
+
+#    nginx:
+#        ports:
+#            - 80:44380
+#            - 443:443
+
+
+networks:
+    app:

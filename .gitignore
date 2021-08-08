@@ -1,0 +1,8 @@
+.idea
+docker/data/
+.bashrc
+
+fiddle*
+Fiddle*
+
+yarn-error.log
