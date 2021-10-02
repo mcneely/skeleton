@@ -16,8 +16,11 @@ init: copy build
 .PHONY: init
 
 ## DEVELOPMENT ##
-build:
+docker-build:
 	docker-compose build
+.PHONY: docker-build
+
+build: docker-build yarn-install
 .PHONY: build
 
 start:
@@ -45,6 +48,10 @@ lint:
 #Linting Placeholder
 .PHONY: lint
 
+test:
+#Test Placeholder
+.PHONY: test
+
 ## PRODUCTION ##
 
 prod-yarn-install: yarn-install
@@ -54,8 +61,11 @@ prod-yarn-install: yarn-install
 prod-deploy: pull prod-yarn-install
 .PHONY: deploy
 
-prod-build: pull
+docker-prod-build:
 	docker-compose -f docker-compose.yml -f docker-compose.prod.yml build
+.PHONY: docker-prod-build
+
+prod-build: pull docker-prod-build
 .PHONY: prod-build
 
 prod-start:
